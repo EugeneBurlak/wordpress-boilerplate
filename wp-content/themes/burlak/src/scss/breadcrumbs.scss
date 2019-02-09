@@ -1,0 +1,21 @@
+.breadcrumbs{
+    margin-top: 10px;
+    &,a{
+        color: $breadcrumbs-color;
+        font-size: 16px;
+    }
+    a{
+        text-decoration: underline;
+        &:hover{
+            text-decoration: none;
+        }
+    }
+    & > span{
+        max-width: 230px;
+        display: inline-block;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: top;
+        overflow: hidden;
+    }
+}

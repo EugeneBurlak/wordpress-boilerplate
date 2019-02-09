@@ -1,0 +1,85 @@
+.section__leadership{
+    padding-top: 0;
+}
+
+.leadership{
+    font-size: 0;
+    &-photo{
+        display: inline-block;
+        vertical-align: middle;
+        width: 300px;
+        padding: 0 50px;
+        img{
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%;
+        }
+    }
+    &-info{
+        display: inline-block;
+        vertical-align: middle;
+        @include calc(width, '100% - 300px');
+    }
+    &-lastname{
+        font-size: 20px;
+        color: $theme-color;
+        line-height: 1em;
+    }
+    &-firstname{
+        font-size: 16px;
+        color: $theme-color;
+        line-height: 1em;
+    }
+    &-position{
+        font-size: 12px;
+        color: $position-color;
+        p{
+            margin: 10px 0;
+        }
+    }
+    &-quote{
+        font-size: 18px;
+        color: $theme-color;
+        line-height: 1.2em;
+        p{
+            margin: 10px 0;
+        }
+    }
+    &-link{
+        display: inline-block;
+        margin-right: 15px;
+        vertical-align: top;
+    }
+    &__wide{
+        max-width: 700px;
+        margin: 0 auto;
+        .leadership{
+            &-photo{
+                width: 100%;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            &-quote{
+                margin: 20px 0;
+                font-size: 16px;
+            }
+            &-info{
+                font-size: 0;
+                width: 100%;
+                padding-right: 50px;
+            }
+            &-position{
+                display: inline-block;
+                vertical-align: top;
+                width: 55%;
+                text-align: left;
+            }
+            &-name{
+                display: inline-block;
+                vertical-align: top;
+                width: 45%;
+                text-align: right;
+            }
+        }
+    }
+}

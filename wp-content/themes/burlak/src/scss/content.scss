@@ -1,0 +1,29 @@
+.content{
+    color: $color-black;
+    font-size: 18px;
+    h2{
+        line-height: 1em;
+        font-size: 30px;
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+    a{
+        color: $color-red;
+        text-decoration: underline;
+        &:hover{
+            text-decoration: none;
+        }
+    }
+    ul{
+        padding-left: 20px;
+    }
+    ol{
+        padding-left: 16px;
+    }
+    img{
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: 25px auto;
+    }
+}

@@ -1,0 +1,61 @@
+span.wpcf7-list-item{
+    padding-right: 0;
+    margin-left: 0;
+}
+.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio]{
+    margin-left: 0;
+}
+.checkbox{
+    margin: 0;
+    padding: 0 !important;
+    padding-bottom: 15px !important;
+    input{
+        visibility: hidden;
+        opacity: 0;
+    }
+    &-fake{
+        position: relative;
+        display: block;
+        line-height: 1.2em;
+        padding-left: 30px;
+        color: #c6c6c5;
+        a{
+            color: #c6c6c5;
+            text-decoration: underline;
+            &:hover{
+                text-decoration: none;
+            }
+        }
+        &:before{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            @include transform(translate(0, -50%));
+            border: 1px solid #c6c6c5;
+            border-radius: 3px;
+            background-color: #fff;
+            box-shadow: inset 0 0 0 10px #39425e;
+            @include animated;
+        }
+    }
+    input:checked + .wpcf7-list-item-label .checkbox-fake{
+        &:before{
+            box-shadow: inset 0 0 0 5px #39425e;
+        }
+    }
+}
+
+.modal{
+    .checkbox{
+        &-fake{
+            color: $theme-color;
+            a{
+                color: $theme-color;
+            }
+        }
+    }
+}

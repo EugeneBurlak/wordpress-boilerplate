@@ -1,0 +1,20 @@
+.top{
+    padding: 40px 0;
+    &-title{
+        text-align: center;
+        font-size: 36px;
+        text-transform: uppercase;
+        span{
+            &:nth-child(even){
+                font-family: 'bold';
+            }
+        }
+    }
+    .breadcrumbs{
+        text-align: center;
+        &,a{
+            color: $breadcrumbs-color;
+            font-size: 14px;
+        }
+    }
+}

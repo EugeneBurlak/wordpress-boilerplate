@@ -1,0 +1,48 @@
+.footer{
+    margin-top: 5px;
+    padding: 30px 0;
+    box-shadow: 0 -2px 6px 0px rgba(0,0,0,.2);
+    font-size: 0;
+    position: relative;
+    z-index: 2;
+    background-color: $color-white;
+    &-left,
+    &-right{
+        display: inline-block;
+        vertical-align: top;
+    }
+    &-left{
+        width: 70%;
+        padding-right: 30px;
+    }
+    &-right{
+        width: 30%;
+    }
+    &-rights{
+        color: $header-navigation-color;
+        font-size: 14px;
+        margin-top: 25px;
+        &:before{
+            content: '';
+            display: block;
+            clear: both;
+        }
+    }
+    &-address{
+        font-size: 16px;
+        color: $footer-address-color;
+        margin-bottom: 15px;
+    }
+    &-phone,
+    &-mail{
+        a{
+            font-size: 16px;
+            color: $footer-address-color;
+            text-decoration: none;
+
+        }
+    }
+    .links{
+        margin-top: 15px;
+    }
+}

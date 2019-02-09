@@ -1,0 +1,73 @@
+.project{
+    &s{
+        margin: 0 -5px;
+        @include flex();
+    }
+    padding: 5px;
+    @include flex-item(0 0 33.3333%);
+    &-link{
+        padding-top: 100%;
+        display: block;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    &-image{
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        @include animated;
+        &:after{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, $event-date-color, transparent);
+            @include transform(translate(-50%, 0));
+            @include animated;
+        }
+    }
+    &-title{
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        @include transform(translate(0, -50%));
+        font-family: bold;
+        font-size: 28px;
+        z-index: 2;
+        padding: 0 25px;
+        color: $color-white;
+    }
+    &__wide{
+        @include flex-item(0 0 66.6666%);
+        .project{
+            &-link{
+                padding-top: 50%;
+            }
+        }
+    }
+    &:hover{
+        .project{
+            &-image{
+                @include transform(scale(1.05));
+                &:after{
+                    @include transform(translate(0, 0));
+                }
+            }
+        }
+    }
+}

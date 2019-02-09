@@ -1,0 +1,27 @@
+.hashtag{
+    &s{
+        text-align: center;
+        font-size: 0;
+        margin: 20px 0;
+    }
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+    a{
+        display: block;
+        padding: 3px 10px;
+        line-height: 1em;
+        font-size: 16px;
+        background-color: #c6c6c5;
+        border: 2px solid #c6c6c5;
+        color: $color-black;
+        @include animated;
+        &:hover{
+            background-color: $color-white;
+        }
+        &:hover,
+        &:focus{
+            text-decoration: none;
+        }
+    }
+}

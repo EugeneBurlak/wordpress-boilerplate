@@ -1,0 +1,188 @@
+.section__departments{
+    .section{
+        &-title{
+            span{
+                display: inline;
+            }
+        }
+    }
+    .top{
+        padding-top: 0;
+    }
+}
+
+.map{
+    position: relative;
+    overflow: hidden;
+    &-wrapper{
+        max-width: 830px;
+        margin: 0 auto;
+    }
+    svg{
+        width: 100%;
+        height: auto;
+        path, polygon{
+            &.lake{
+                fill:none;
+                stroke:#23268d;
+                stroke-width: 0.5;
+            }
+            &.region{
+                fill:#848D94;
+                fill-opacity:1;
+                stroke:#fff;
+                stroke-width:2;
+                stroke-opacity: 0.25;
+                @include animated;
+                &:hover{
+                    fill-opacity: 0.7;
+                }
+                &__active{
+                    fill: rgb(43, 52, 126);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    &-tooltip{
+        position: absolute;
+        top: 0;
+        left: 0;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s;
+        width: 210px;
+        color: #fff;
+        font-size: 14px;
+        padding-left: 22px;
+        &-info{
+            overflow: hidden;
+            text-overflow: ellipsis;    
+            padding: 10px;
+            background-color: rgba(28, 37, 69, 0.7);
+        }
+        &:after{
+            content: '';
+            display: block;
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            width: 22px;
+            height: 40px;
+            background-size: 22px 40px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-image: url(../images/map-corner.png);
+        }
+        &-left{
+            padding-left: 0;
+            padding-right: 22px;
+            &:after{
+                left: auto;
+                right: 0;
+                @include transform(rotateY(180deg));
+            }
+        }
+        &-inner{
+            box-shadow: 0 0 6px 0px rgba(0,0,0, 0.2);
+            background-color: rgba(255,255,255, 0.3);    
+            padding: 5px;
+        }
+        &-title{
+            text-transform: uppercase;
+            font-size: 16px;
+            line-height: 1em;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            position: relative;
+            &:after{
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 90%;
+                height: 1px;
+                background-color: #fff;
+            }
+            &__unactive{
+                margin-bottom: 0;
+                padding-bottom: 0;
+                &:after{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.departments{
+    &-description{
+        text-align: center;
+        color: $breadcrumbs-color;
+        margin-top: -30px;
+        margin-bottom: 30px;
+        p{
+            margin: 0;
+        }
+    }
+    &-item{
+        text-align: center;
+        a{
+            text-align: center;
+            color: $header-navigation-color;
+            text-decoration: underline;
+            display: block;
+            padding: 2px 0;
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+    &-face{
+        font-size: 0;
+        padding: 30px 0;
+        &-photo{
+            width: 300px;
+            display: inline-block;
+            vertical-align: top;
+            img{
+                border-radius: 50%;
+                max-width: 100%;
+                height: auto;
+            }
+        }
+        &-info{
+            display: inline-block;
+            @include calc(width, '100% - 300px');
+            vertical-align: top;
+            padding-left: 40px; 
+        }
+        &-name{
+            font-size: 24px;
+            font-family: bold;
+        }
+        &-description{
+            font-size: 16px;
+            color: $breadcrumbs-color;
+            margin: 15px 0;
+        }
+        &-contact-title{
+            font-size: 16px;
+            font-family: bold;
+        }
+        &-phone,
+        &-mail{
+            margin-top: 10px;
+            a{
+                font-size: 16px;
+                color: $event-date-color;
+                text-decoration: underline;
+                
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

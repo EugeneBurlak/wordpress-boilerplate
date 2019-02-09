@@ -1,0 +1,21 @@
+.search{
+    &-item{
+        &-title{
+            color: $theme-color;
+            font-size: 18px;
+            &:hover{
+                color: $theme-color;
+                text-decoration: underline;
+            }
+        }
+        &-content{
+            margin-top: 10px;
+            color: #666;
+        }
+        border-bottom: 1px solid #E8E8E8;
+        padding: 15px 0;
+        &:last-child{
+            border-bottom: none;
+        }
+    }
+}

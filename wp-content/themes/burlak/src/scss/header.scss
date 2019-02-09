@@ -1,0 +1,186 @@
+.header{
+    font-size: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    box-shadow: 0 2px 6px 0px rgba(0,0,0,.2);
+    background-color: $color-white;
+    .container{
+        position: relative;
+        padding: 0;
+    }
+    &-inner{
+        font-size: 0;
+        padding: 20px 15px;
+        background-color: $color-white;
+        position: relative;
+        z-index: 2;
+        &:after{
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: $theme-color;
+            opacity: 0;
+            @include animated;
+        }
+    }
+    &-logo,
+    &-navigation,
+    &-search,
+    &-toggle{
+        display: inline-block;
+        vertical-align: middle;
+    }
+    &-logo{
+        width: 160px;
+        a{
+            display: block;
+            width: 160px;
+            height: 44.5px;
+            position: relative;
+            top: 5px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 160px 44.5px;
+            background-image: url(../images/logo.png);
+        }
+    }
+    &-navigation{
+        @include calc(width, '100% - 160px - 40px');
+        &__mobile{
+            display: none;
+            @include calc(max-height, '100vh - 56px');
+            overflow: auto;
+            li{
+                display: block;
+                width: 100%;
+                text-align: center;
+                a{
+                    display: inline-block;   
+                    width: auto;
+                }
+            }
+        }
+    }
+    &-toggle{
+        width: 35px;
+        height: 28px;
+        display: none;
+        margin-left: 10px;
+    }
+    &-search{
+        width: 40px;
+        &-toggle{
+            width: 100%;
+            padding-top: 100%;
+            margin: 0;
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+            position: relative;
+            background-color: $theme-color;
+            &:after,
+            &:before{
+                content: '';
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 70%;
+                height: 70%;
+                background-size: 70% 70%;
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-image: url(../images/zoom.svg);
+                @include transform(translate(-50%, -50%));
+                @include animated;
+            }
+            &:before{
+                background-image: url(../images/cancel.svg);
+                opacity: 0;
+            }
+            &:focus{
+                outline: none;
+            }
+        }
+        &-panel{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            z-index: 1;
+            @include animated;
+            background-color: $color-white;
+            padding: 5px;
+            & *{
+                height: 100%;
+            }
+            label{
+                height: 0;
+            }
+            input{
+                width: 100%;
+                height: 100%;
+                border: none;
+                background-color: transparent;
+                border-bottom: 2px solid $theme-color;
+                padding: 0 10px;
+                font-size: 14px;
+                &:focus{
+                    outline: none;
+                }
+                &[type="submit"]{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: auto;
+                    background-color: $theme-color;
+                    color: $color-white;    
+                }
+            }
+        }
+    }
+    &.search-visible{
+        .header{
+            &-search{
+                &-toggle{
+                    &:after,
+                    &:before{
+                        @include transform(translate(-50%, -50%) rotateY(180deg));
+                    }
+                    &:after{
+                        opacity: 0;
+                    }
+                    &:before{
+                        opacity: 1;
+                    }
+                }
+                &-panel{
+                    @include transform(translate(0, 200%));
+                    box-shadow: 0 2px 6px 0px rgba(0,0,0,.2);
+                }
+            }
+            &-inner{
+                &:after{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    &.navigation-visible{
+        .header{
+            &-inner{
+                &:after{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

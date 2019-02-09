@@ -1,0 +1,59 @@
+.links{
+    font-size: 0;
+    .link{
+        display: inline-block;
+        vertical-align: middle;
+        width: 50%;
+        margin: 2px 0;
+        &:nth-child(even){
+            text-align: right;
+        }
+        padding: 0;
+        a{
+            color: $header-navigation-color;
+            text-decoration: underline;
+            text-transform: none;
+            &:hover{
+                text-decoration: none;
+            }
+            &.button{
+                text-decoration: none;
+            }
+            &.regular{
+                font-size: 16px;
+            }
+            &.pin{
+                text-decoration: none;
+                position: relative;
+                font-size: 16px;
+                padding-left: 25px;
+                &:before{
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    bottom: 2px;
+                    left: 0;
+                    width: 20px;
+                    height: 26px;
+                    background-image: url(../images/pin-colored.png);
+                    background-size: 20px 26px;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                }
+                span{
+                    text-decoration: underline;
+                }
+                &:hover{
+                    span{
+                        text-decoration: none;
+                    }
+                }
+                &:hover{
+                    &:before{
+                        animation: jump 0.3s linear;
+                    }
+                }
+            }
+        }
+    }
+}

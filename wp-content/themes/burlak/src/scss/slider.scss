@@ -1,0 +1,159 @@
+.section__slider{
+    padding: 0;
+}
+
+.slider{
+    background-color: $slider-color;
+    .swiper-slide{
+        font-size: 0;
+        height: 380px;
+        background-size: cover;
+        background-position: center center;
+        position: relative;
+        a{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.swiper-pagination-progressbar{
+    background-color: $slider-color;
+    .swiper-pagination-progressbar &-fill{
+        background-color: $color-white;
+    }
+}
+.swiper-button-next{
+    right: 20px;
+    &:hover{
+        svg{
+            margin-left: 5px;
+        }
+    }
+}
+
+.swiper-button-prev{
+    left: 20px;
+    right: 20px;
+    &:hover{
+        svg{
+            margin-left: -5px;
+        }
+    }
+}
+
+.swiper-button-next,
+.swiper-button-prev{
+    background-image: none;
+    width: 40px;
+    height: 40px;
+    border: 1px solid $color-white;
+    margin-top: -21px;
+    svg{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, -50%));
+        width: 24px;
+        height: 24px;
+        @include animated;
+        path{
+            fill: $color-white;
+            @include animated;
+        }
+    }
+    @include animated;
+    &:focus{
+        outline: none;
+    }
+    &:hover{
+        background-color: $color-white;
+        svg{
+            path{
+                fill: $slider-color;
+            }
+        }
+    }
+    &:active{
+        @include transform(scale(0.9));
+        svg{
+            margin: 0;
+        }
+    }
+    &__filled{
+        background-color: $color-white;
+        svg{
+            path{
+                fill: $slider-color;
+            }
+        }
+    }
+}
+
+.slider-article,
+.projects-slider{
+    margin: 20px 0;
+    img{
+        width: 100%;
+        height: auto;
+    }
+    .swiper-button-next, .swiper-button-prev{
+        height: 100%;
+        margin-top: 0;
+        height: 100%;
+        background-color: rgba(28, 37, 69, 0.5);
+        top: 0;
+        border: none;
+        &:active{
+            @include transform(scale(1));
+        }
+        svg{
+            @include transform(translate(-50%, -50%) scaleY(2));
+        }
+        &:hover{
+            background-color: rgba(28, 37, 69, 0.5);
+            svg{
+                path{
+                    fill: $color-white;
+                }
+            }
+        }
+        &.unvisible{
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+    .swiper-button-next{
+        right: 0;
+    }
+    .swiper-button-prev{
+        left: 0;
+    }
+    .projects-slider-thumbs-next,
+    .projects-slider-thumbs-prev{
+        height: 131px;
+        top: 5px;
+    }
+}
+.projects-slider-thumbs{
+    padding-top: 5px;
+    .media-image{
+        @include animated;
+    }
+    .swiper-slide.active{
+        .media-image{
+            box-shadow: inset 0 0 0 4px $theme-color;
+        }
+    }
+}
+
+.projects-slider{
+    margin: 40px 0;
+}

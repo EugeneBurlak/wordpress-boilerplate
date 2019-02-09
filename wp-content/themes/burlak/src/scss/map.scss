@@ -1,0 +1,47 @@
+#map{
+    height: 400px;
+}
+
+[class^="ymaps"]{
+    box-shadow: none !important;
+}
+
+[class$="-balloon__layout"]{
+    border: 3px solid rgba(154, 154, 154, 0.5);
+    box-shadow: none;
+    border-radius: 15px 0 15px 15px;
+}
+
+[class$="-balloon__close"]{
+    display: none;
+}
+
+[class$="-balloon__tail"]{
+    display: none !important
+}
+
+[class$="-balloon__content"]{
+    background-color: #1c2545 !important;
+    color: #fff !important;
+    margin-right: 0 !important;
+    font-size: 14px;
+    line-height: 1em;
+    padding-right: 12px !important;
+    min-width: auto !important;
+    max-width: auto !important;
+    width: 170px !important;
+    padding: 15px 20px !important;
+    ymaps{
+        width: 100% !important;
+        height: auto !important;
+    }
+    img{
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+}
+.ymaps-2-1-72-balloon_layout_panel,
+[class$="-balloon_layout_panel"]{
+    background-color: #1c2545 !important;
+}

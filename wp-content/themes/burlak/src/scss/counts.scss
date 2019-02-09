@@ -1,0 +1,33 @@
+.section__counts{
+    background: radial-gradient(#fff, #9d9c9c);
+    padding: 40px 0 25px 0;
+}
+.count{
+    &s{
+        font-size: 0;
+    }
+    display: inline-block;
+    vertical-align: top;
+    width: 25%;
+    padding: 0 15px;
+    text-align: center;
+    &-number{
+        font-size: 50px;
+        font-family: bold;
+    }
+    &-text{
+        font-size: 18px;
+        margin-top: 5px;
+        @include transform(translateY(-10px));
+        @include animated;
+        opacity: 0;
+    }
+    &.visible{
+       .count{
+           &-text{
+                @include transform(translateY(0px));
+                opacity: 1;
+           }
+       }
+    }
+}

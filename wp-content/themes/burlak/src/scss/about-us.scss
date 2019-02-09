@@ -1,0 +1,61 @@
+.section__about-us{
+    background: radial-gradient(#3b445f, #1b2545);
+    box-shadow: 0 0 10px 4px #d3d3d3;
+}
+
+.about-us{
+    font-size: 0;
+    margin-top: 60px;
+    &-item{
+        margin: 20px 0;
+        &-label{
+            display: inline-block;
+            vertical-align: top;
+            font-family: bold;
+            font-size: 16px;
+            width: 150px;
+            text-align: right;
+            color: $color-white;
+        }
+        &-value{
+            display: inline-block;
+            vertical-align: top;
+            color: $color-white;
+            font-size: 16px;
+            @include calc(width, '100% - 150px');
+            padding-left: 25px;
+            &__goal{
+                text-transform: uppercase;
+                font-family: bold;
+            }
+        }
+    }
+}
+
+.tasks{
+    font-size: 0;
+    &-col{
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+        padding-right: 10px;
+        &:nth-child(even){
+            padding-left: 10px;
+        }
+    }
+    &-item{
+        margin-bottom: 10px;
+        &-number{
+            font-family: bold;
+            display: inline;
+            font-size: 18px;
+        }
+        &-text{
+            font-size: 14px;
+            display: inline;
+            p{
+                display: inline;
+            }
+        }
+    }
+}

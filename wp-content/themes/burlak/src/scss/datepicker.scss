@@ -1,0 +1,250 @@
+.datepicker{
+    table{
+        width: 100%;
+    }
+    th{
+        &.next,
+        &.prev{
+            span{
+                display: block;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background-color: #1b2545;
+                font-size: 0;
+                background-image: url(../images/back.svg);
+                background-size: 18px 18px;
+                background-position: center center;
+                background-repeat: no-repeat;
+                float:right;
+                cursor: pointer;
+                @include animated;
+                &:hover{
+                    @include transform(translate(-5px, 0))
+                }
+            }
+        }
+        &.next{
+            span{
+                float:left;
+                background-image: url(../images/next.svg);
+                &:hover{
+                    @include transform(translate(5px, 0))
+                }
+            }
+        }
+    }
+    &-days{
+        thead{
+            th{
+                text-align: center;
+            }
+            tr:first-child{
+                th{
+                    padding-left: 10px;
+                    text-align: left;
+                    &.next,
+                    &.prev{
+                        display: none;
+                    }
+                    text-transform: uppercase;
+                    color: #1b2545;
+                    font-size: 18px;
+                    font-family: regular;
+                    font-weight: 300;
+                }
+            }
+            tr:nth-child(2){
+                th{
+                    color: #575756;
+                    font-size: 16px;
+                    font-weight: 300;
+                    font-family: bold;
+                    &:first-letter{
+                        text-transform: uppercase;
+                    }
+                    &:nth-child(6),
+                    &:nth-child(7){
+                        color: #e20613;
+                    }
+                }
+            }
+        }
+        .day{
+            position: relative;
+            color: #9c9b9b;
+            text-align: center;
+            width: 30px;
+            height: 30px;
+            &.old,
+            &.new{
+                visibility: hidden;
+            }
+            & > span{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 2;
+                line-height: 30px;
+                text-align: center;
+            }
+            &.enable{
+                position: relative;
+                &:after{
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 30px;
+                    height: 30px;
+                    margin-top: -15px;
+                    margin-left: -15px;
+                    z-index: 1;
+                    background-color: #1b2545;
+                    @include animated;
+                    border-radius: 50%;
+                }
+                span{
+                    color: $color-white;
+                    cursor: pointer;
+                    @include animated;
+                }
+                &:hover{
+                    &:after{
+                        @include transform(scale(0.9));
+                        background-color: $color-white;
+                        box-shadow: inset 0 0 0 2px #1b2545;
+                    }
+                    span{
+                        color: #1b2545;
+                    }
+                }
+            }
+        }
+    }
+    &-months{
+        th{
+            text-align: center;
+            text-transform: uppercase;
+            color: #1b2545;
+            font-size: 18px;
+            font-family: regular;
+            font-weight: 300;
+        }
+        .month{
+            display: inline-block;
+            width: 33.33333%;
+            text-align: center;
+            padding: 5px;
+            line-height: 1em;
+            cursor: pointer;
+            @include animated;
+            &:hover{
+                color: #1b2545;
+            }
+            &:first-letter{
+                text-transform: uppercase;
+            }
+        }
+    }
+    &-popup{
+        position: absolute;
+        top: 110%;
+        right: 0;
+        width: 200px;
+        opacity: 0;
+        visibility: hidden;
+        @include animated;
+        overflow: hidden;
+        min-height: 50px;
+        padding: 10px 3px 3px 3px;
+        &:after{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 3px;
+            right: 12px;
+            width: 12px;
+            height: 12px;
+            @include transform(rotate(-45deg));
+            background-color: $color-white;
+            border: 1px solid rgba(0,0,0,.2);
+            border-left-color: transparent;
+            border-bottom-color: transparent;
+            z-index: 3;
+        }
+        &-inner{
+            background-color: $color-white;
+            box-shadow: 0 0px 7px -1px rgba(0,0,0,.4);
+            position: relative;
+            min-height: 60px;
+            z-index: 1;
+        }
+        &-loader{
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            @include animated;
+            &:after,
+            &:before{
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $color-white;
+            }
+            &:after{
+                background-color: transparent;
+                width: 30px;
+                height: 30px;
+                border: 3px solid $theme-color;
+                border-left-color: transparent;
+                animation: 0.6s rotate linear infinite;
+                left: 50%;
+                top: 50%;
+                margin-top: -15px;
+                margin-left: -15px;
+                border-radius: 50%;
+            }
+        }
+    }
+    .day{
+        z-index: 1;
+        &:hover{
+            z-index: 2;
+            .datepicker-popup{
+                top: 100%;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}
+
+[data-state="done"]{
+    .datepicker-popup{
+        &-loader{
+            @include transform(scale(2));
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+}
+
+#calendar{
+    text-align: center;
+}
+
+.datepicker{
+    width: 250px;
+    display: inline-block;
+}
